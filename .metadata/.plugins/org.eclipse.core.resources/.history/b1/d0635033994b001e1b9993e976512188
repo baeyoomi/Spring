@@ -1,8 +1,0 @@
-package sp1;
-
-import org.springframework.stereotype.Controller;
-
-@Controller
-public class webpage {
-
-}

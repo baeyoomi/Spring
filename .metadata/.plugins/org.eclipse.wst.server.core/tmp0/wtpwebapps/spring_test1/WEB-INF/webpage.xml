@@ -10,10 +10,16 @@
 		http://www.springframework.org/schema/context
 		https://www.springframework.org/schema/context/spring-context.xsd
 		">
-	<!-- 
-	<annotation-driven/>
-	<resources location="/" mapping="/.html"></resources>
-	 -->
+	
+	<annotation-driven/> <!-- @Controller,@RequestMapping  -->
+	<resources location="/" mapping="/**"></resources>  <!-- MVC가 기본이라 앞에 안붙어도됌 -->
+	
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/"></beans:property> <!-- beans가 차순이라 앞에 안붙여야됌 -->
+		<beans:property name="suffix" value=".jsp"></beans:property>
+	</beans:bean>
+	
+	<beans:bean class="sp1.webpage"></beans:bean>
 </beans:beans>
 
 

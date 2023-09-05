@@ -17,9 +17,11 @@
 		prefix 경로를 (/WEB-INF/viewpage/)설정할수도 있고 (/)넣으면 알아서 써도 된다. suffix 모든 View는 .jsp로 잡는다 -->
 	</bean>
 	
+	<!-- 요청한 파일만 Tomcat에서 사용될 수 있도록 Spring-MVC에서 조절함 -->
 	<mvc:resources location="/" mapping="/*.*"></mvc:resources>
+	<!-- 
 	<mvc:resources location="/" mapping="/*.html"></mvc:resources>
 	<mvc:resources location="/" mapping="/*.js"></mvc:resources>
 	<mvc:resources location="/" mapping="/*.css"></mvc:resources>
-	
+	 -->
 </beans>
