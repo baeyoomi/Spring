@@ -1,0 +1,5 @@
+<script>
+	function id(){
+		return true;
+	}
+</script>

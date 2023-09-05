@@ -1,0 +1,8 @@
+package sp1;
+
+import org.springframework.web.servlet.mvc.Controller;
+
+//index url 메인
+public class index implements Controller {
+
+}
