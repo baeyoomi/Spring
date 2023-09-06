@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>이메일 발송 시스템</title>
+</head>
+<body>
+<form id="f" method="post" action="./email.do">
+	고객명 <input type="text">
+	받는메일 <input type="text">
+	제목 <input type="text">
+	내용 <input type="text">
+	<input type="button" value="메일발송" onclick="email()">
+</form>
+</body>
+<script>
+	
+</script>
+
+</html>

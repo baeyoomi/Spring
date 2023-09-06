@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>이메일 발송 시스템</title>
+</head>
+<body>
+<form id="f" method="post" action="./spring4ok.do">
+	<input type="hidden" name="address" value="cxz3930@naver.com">
+	고객명 : <input type="text" name="pname" required><br>
+	받는메일 <input type="text" name="pemail" required>
+	제목 <input type="text" name="ptitle" required>
+	내용 <textarea name="pcontent" required></textarea>
+	<input type="submit" value="메일발송">
+	<br>
+</form>
+</body>
+<script>
+	
+</script>
+<style>
+	form {width: 500px; text-align: center;}
+	div{text-align: left;}
+	input {float: right; width: 250px;}
+	input[type=button] {width: 200px; color: white; 
+			background-color:cornflowerblue; 
+			padding: 10px 3px; font-weight: bold;}
+</style>
+</html>

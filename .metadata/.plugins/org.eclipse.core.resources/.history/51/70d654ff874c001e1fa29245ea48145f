@@ -1,0 +1,51 @@
+package sp1;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+//2차원 배열에 대한 응용편
+/*
+	A조 김경민,배유미,김승균
+	B조 이철의,장진호,홍사라
+	C조 박병준,전정호,이경선
+	D조 최현제,서강인,염무원
+	
+	[결과]
+	[[A조,김경민,배유미,김승균],[B조,이철의,장진호,홍사라]....]
+*/
+public class array_link3 {
+
+	public static void main(String[] args) {
+		//코드 및 결과 출력
+		String group[][] = {
+				{"A조","김경민","배유미","김승균"},
+				{"B조","이철의","장진호","홍사라"},
+				{"C조","박병준","전정호","이경선"},
+				{"D조","최현제","서강인","염무원"}
+		}; 
+
+		LinkedList<String> linkl = new LinkedList<String>();
+		int i,j=0;
+		ArrayList<String> cr1,cr2,cr3,cr4 = new ArrayList<String>();
+		for(i=0; i<group.length; i++) {
+			//linkl.get(0).add(group[0][i]);
+			for(j=0; j<group[0].length;j++) {
+				System.out.println(group[i][j]);
+				if(i == 0) {
+					cr1.add(group[i][j]);					
+				}
+				else if(i == 1) {
+					cr2.add(group[i][j]);					
+				}
+				else if(i == 2) {
+					cr2.add(group[i][j]);					
+				}
+				else if(i == 3) {
+					cr2.add(group[i][j]);					
+				}
+			}
+		}
+		System.out.println(cr);
+	}
+
+}

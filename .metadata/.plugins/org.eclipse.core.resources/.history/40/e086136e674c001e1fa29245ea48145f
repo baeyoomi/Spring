@@ -1,0 +1,21 @@
+package sp1;
+
+public class userdata {
+	String mid = null;
+	String mname = null;
+	
+	public userdata(String data1, String data2) {
+		this.mid = data1;
+		this.mname = data2;
+	}
+	
+	
+	public String getMid() {
+		return mid;
+	}
+	public String getMname() {
+		return mname;
+	}
+
+	
+}

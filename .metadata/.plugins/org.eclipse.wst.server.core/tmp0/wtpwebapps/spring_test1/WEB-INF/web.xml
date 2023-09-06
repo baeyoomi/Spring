@@ -10,6 +10,7 @@
   		<param-name>contextConfigLocation</param-name>
   		<param-value>
   		/WEB-INF/webpage.xml
+  		/WEB-INF/spring.xml
   		</param-value>
   	</init-param>
   	<load-on-startup>1</load-on-startup>   <!-- 1순위로 읽음 -->
