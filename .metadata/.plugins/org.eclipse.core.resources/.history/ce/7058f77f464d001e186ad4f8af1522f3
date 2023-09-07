@@ -1,0 +1,39 @@
+package sp1;
+
+import java.util.ArrayList;
+import java.util.List;
+
+//DAO, DTO 형태의 구성
+public class array_link4 {
+	//DAO파트
+	public static void main(String[] args) {
+		new box().datacall();
+	}
+}
+
+class box{
+	dto dt = new dto(); //setter,getter
+	
+	public void datacall() {
+		
+	}
+	
+	//Database 연결 및 데이터를 배열화 하는 메소드 필요
+	public List<ArrayList<String>> list(){
+		List<ArrayList<String>> al = new ArrayList<ArrayList<String>>();
+		String data[][] = new String[][] {
+			{"hong","hong@nate.com"},
+			{"lee","leesu@gamil.com"}
+		};
+		int w = 0;
+		while(w < data.length) {
+			this.dt.setUserid(data[w][0]);
+			this.dt.setEmail(data[w][1]);
+			al.add(this.dt.database());
+			w++;
+		}
+		
+		
+		return al;
+	}
+}

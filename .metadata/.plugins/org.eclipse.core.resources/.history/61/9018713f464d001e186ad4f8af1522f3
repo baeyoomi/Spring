@@ -1,0 +1,14 @@
+package sp1;
+
+import lombok.Getter;
+import lombok.Setter;
+
+//dto (스프링 전용 setter,getter)
+@Setter
+@Getter
+public class dto {
+	String userid = null;
+	String email = null;
+
+
+}

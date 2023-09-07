@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!-- 표현식을 쓰기위해 엔진 셋팅 -->
+<%@ taglib prefix="app" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+ 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>spring 3일차 - Controller -> view로 배열값 출력 (표현식)</title>
+</head>
+<body>
+<!-- 
+:set var 변수명을 생성해서 함수(functions)를 이용하여 값을 받는 형태 
+:forEach 배열을 반복시킬 때 사용
+:if 조건물을 생성 조건형태는 test 이름으로 생성
+-->
+<p>고객명 리스트</p>
+	<app:set var="ea" value="${fn:length(person_list)}"></app:set>
+	<app:set var="delete" value="${person_delete}"></app:set>
+
+<p>가입자 수 : ${ea}</p>
+<p>탈퇴인원 수 : ${delete}</p>
+<ul>
+<!-- forEach문 - items사용 -->
+	<app:forEach var="username" items="${person_list}" varStatus="st">
+	<app:if test="${username!='강감찬'}">
+	<li>번호: ${st.index+1}  이름: ${username}</li>
+	</app:if>
+	</app:forEach>
+</ul>
+
+<!-- for문 - begin, end, step사용 -->
+<app:forEach var="w" begin="1" end="5" step="1">
+${w}
+</app:forEach>
+
+</body>
+</html>

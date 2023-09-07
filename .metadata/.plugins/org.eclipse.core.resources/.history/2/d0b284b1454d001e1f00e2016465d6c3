@@ -1,0 +1,10 @@
+package sp1;
+
+
+//dto (스프링 전용 setter,getter)
+public class dto {
+	String userid = null;
+	String email = null;
+
+
+}

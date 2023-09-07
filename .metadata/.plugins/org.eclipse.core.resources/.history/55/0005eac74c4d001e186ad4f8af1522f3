@@ -1,0 +1,25 @@
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	//일반 JSP로 받는 형태
+	ArrayList<String> list = (ArrayList<String>)request.getAttribute("person_list");
+	out.print(al)''
+	
+%>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>spring 3일차 - Controller -> view로 배열값 출력</title>
+</head>
+<body>
+
+<p>고객명 리스트</p>
+<%-- ${person_list} --%>
+<ul>
+	<li></li>
+</ul>
+</body>
+</html>

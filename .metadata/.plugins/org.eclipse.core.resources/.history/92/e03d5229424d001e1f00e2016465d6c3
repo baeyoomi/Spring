@@ -1,0 +1,14 @@
+package sp1;
+//DAO, DTO 형태의 구성
+public class array_link4 {
+	//DAO파트
+	public static void main(String[] args) {
+		new box().datacall();
+	}
+}
+
+class box{
+	public void datacall() {
+		
+	}
+}
