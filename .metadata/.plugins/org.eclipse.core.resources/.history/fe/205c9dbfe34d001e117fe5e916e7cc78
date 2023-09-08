@@ -1,0 +1,10 @@
+package sp1;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class dto_user {
+	String mno,mid,mpass,memail,mtel,marea,minter,mage,mdate;
+}

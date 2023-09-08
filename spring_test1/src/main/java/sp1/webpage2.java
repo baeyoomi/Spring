@@ -1,9 +1,9 @@
 package sp1;
 
 import java.io.PrintWriter;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -19,10 +19,31 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class webpage2 {
 	PrintWriter pw = null;
+	
+	
+	//JSTL로 view page 출력 파트
+	@RequestMapping("/product_list.do")
+	public String pd_list(HttpServletRequest req, Model m) {
+		List<ArrayList<String>> product_data = null;
+		
+		try {
+			product_list pl = new product_list();
+			product_data = pl.pro_listdata();		
+		}
+		catch(Exception e) {
+			System.out.println("Controller 오류!");
+		}
+		m.addAttribute("product",product_data);
+		m.addAttribute("update","수정/삭제");
+		
+		return "/WEB-INF/jsp/product_list"; 	
+	}
+	
 	
 	//spring1.html에 넘어온 값을 view를 통해서 핸들링함 2
 	@PostMapping("/spring1ok.do")
@@ -136,6 +157,36 @@ public class webpage2 {
 		return "/WEB-INF/jsp/spring5_2ok";  //표현식 JSP view
 		
 		//표현식 값을 javascript 전달(Front-end) Node형태로 출력
+	}
+	
+	
+	// 사용자 리스트 출력 Mysql 이용 (DAO,DTO 같이 구성)
+	// 컨트롤러 부분
+	@RequestMapping("/spring6ok.do")
+	public String userlist(HttpServletRequest req, Model m) {
+		List<ArrayList<String>> member_data = null;
+		String search = req.getParameter("search");
+		String part = req.getParameter("part");
+
+		try {
+			if(search == "null" || search == null || search =="") { //검색이 없을 경우
+				user_list ul = new user_list();
+				member_data = ul.listdata();
+			}
+			else {  //검색 단어가 있을 경우
+				user_list ul = new user_list();
+				member_data = ul.listdata(search,part);
+			}
+			
+			//JSP
+			req.setAttribute("total", new user_list().total_member());
+			req.setAttribute("member_data", member_data);
+			req.setAttribute("part", part);
+		}
+		catch(Exception e) {
+			System.out.println("Controller 오류 발생");
+		}
+		return "/WEB-INF/jsp/member_list";
 	}
 }
 
