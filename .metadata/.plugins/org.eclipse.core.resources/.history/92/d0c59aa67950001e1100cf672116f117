@@ -1,0 +1,21 @@
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class server {
+
+	public static void main(String[] args) {
+		int port = 8009;     //TCP,UDP port 번호
+		ServerSocket ss = null;  //ServerSocket 소켓 오픈
+		Socket sc = null;   //소켓통신으로 접속 허용
+		try {
+			ss = new ServerSocket(port);
+			System.out.println("Server Open!!");
+			sc = ss.accept();
+		}
+		catch(Exception e) {
+			System.out.println("Server Open Error!!");
+		}
+
+	}
+
+}

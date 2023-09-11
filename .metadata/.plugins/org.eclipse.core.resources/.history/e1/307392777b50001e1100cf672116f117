@@ -1,0 +1,21 @@
+//TCP 접속
+
+import java.net.Socket;
+
+public class client {
+
+	public static void main(String[] args) {
+		String ip = "192.168.110.217";
+		int port = 8009;
+		Socket sc = null;
+		
+		try {
+			sc = new Socket(ip,port);
+			System.out.println("Success Connection...");
+		}
+		catch(Exception e) {
+			System.out.println("Not Connection...");
+		}
+	}
+
+}

@@ -1,0 +1,31 @@
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class server {
+
+	public static void main(String[] args) {
+		int port = 8009; 
+		ServerSocket ss = null; 
+		Socket sc = null; 
+		Scanner sn = null;
+		
+		try {	
+			ss = new ServerSocket(port); 
+			System.out.println("서버오픈");
+			System.out.println("환영합니다");
+			System.out.println("Chatting...");
+			while(true) {
+				sc = ss.accept();
+				System.out.println("Message : ");
+				sn = new Scanner(System.in);
+				String msg = sn.nextLine();
+			}	
+		}
+		catch(Exception e) {
+			System.out.println("Server Open Error!!");
+		}
+
+	}
+
+}

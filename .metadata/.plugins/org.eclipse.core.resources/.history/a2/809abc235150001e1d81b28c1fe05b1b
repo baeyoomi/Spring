@@ -1,0 +1,23 @@
+package sp1;
+
+import java.sql.Connection;
+
+public class product_delete {
+	Connection con = null;
+	
+	//DB 연결
+	public product_delete() {
+		try {
+			this.con = dbconfig.info();
+		}
+		catch(Exception e) {
+			System.out.println("DB 접속 오류!");
+		}
+	}
+	
+	//삭제 Module
+	private int delete_ok() {
+		
+		return 0;
+	}
+}

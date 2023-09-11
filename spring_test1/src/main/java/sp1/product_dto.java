@@ -10,6 +10,10 @@ import lombok.Setter;
 public class product_dto {
 	String pidx,pcode,pname,pmoney,pimg,psale,puse;
 	
+	
+	
+	
+	//리스트 출력을 위한 Getter
 	public ArrayList<String> db_product(){
 		ArrayList<String> products = new ArrayList<String>();
 		products.add(getPidx());

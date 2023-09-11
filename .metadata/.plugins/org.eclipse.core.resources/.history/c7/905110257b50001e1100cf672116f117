@@ -1,0 +1,28 @@
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class server {
+
+	public static void main(String[] args) {
+		int port = 8009; 
+		ServerSocket ss = null; 
+		Socket sc = null; 
+		Scanner sn = null;
+		
+		try {	
+			ss = new ServerSocket(port); 
+			System.out.println("Server Open!!");
+			sn = new Scanner(System.in);
+			while(true) {
+				sc = ss.accept();
+				
+			}	
+		}
+		catch(Exception e) {
+			System.out.println("Server Open Error!!");
+		}
+
+	}
+
+}

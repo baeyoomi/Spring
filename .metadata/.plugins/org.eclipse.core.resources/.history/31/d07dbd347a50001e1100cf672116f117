@@ -1,0 +1,11 @@
+//TCP 접속
+public class client {
+
+	public static void main(String[] args) {
+		String ip = "192.168.110.217";
+		int potr = 8009;
+		Socket sc = null;
+		
+	}
+
+}

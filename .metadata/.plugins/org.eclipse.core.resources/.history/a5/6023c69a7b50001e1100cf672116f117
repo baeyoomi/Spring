@@ -1,0 +1,26 @@
+//TCP 접속
+
+import java.net.Socket;
+import java.util.Scanner;
+
+public class client {
+
+	public static void main(String[] args) {
+		String ip = "192.168.110.217";
+		int port = 8009;
+		Socket sc = null;
+		Scanner sn = null;
+		
+		try {
+			sc = new Socket(ip,port);
+			System.out.println("Success Connection...");
+			sn = new Scanner(System.in);
+			System.out.println("userid : ");
+			String mid = sn.next();
+		}
+		catch(Exception e) {
+			System.out.println("Not Connection...");
+		}
+	}
+
+}

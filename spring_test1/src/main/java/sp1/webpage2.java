@@ -25,6 +25,85 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class webpage2 {
 	PrintWriter pw = null;
 	
+	//수정완료
+	@PostMapping("/product_modifyok.do")
+	public String ok_modify(HttpServletRequest req, HttpServletResponse res) {
+		res.setContentType("text/html; charset=utf-8");
+		
+		String pidx = req.getParameter("pidx");
+		String pcode = req.getParameter("pcode");
+		String pname = req.getParameter("pname");
+		String pmoney = req.getParameter("pmoney");
+		String psale = req.getParameter("psale");
+		String puse = req.getParameter("puse");
+		
+		product_ok ok = new product_ok();
+		String msg = "";
+		
+		int result = ok.modify_sql(pidx, pcode, pname, pmoney, psale, puse);
+		if(result == 1) {
+			msg="<script>alert('정상적으로 수정 완료 되었습니다.');"
+					+ "location.href='./product_list.do';</script>";
+		}
+		else {
+			msg="<script>alert('수정 내용이 올바르지 않습니다.');"
+					+ "history.go(-1);</script>";
+		}
+		try {
+			this.pw = res.getWriter();
+			this.pw.write(msg);
+		}
+		catch(Exception e) {
+			System.out.println("올바른 값이 전달되지 않음");
+		}
+		
+		return null;
+	}
+	
+	
+	//하나의 상품 출력 파트 (JSTL)
+	@GetMapping("/product_modify.do")
+	public String view_product(HttpServletRequest req, Model m) {
+		String idx = req.getParameter("idx");
+		try {
+			product_modify pm = new product_modify();
+			ArrayList<String> data = pm.view_ok(idx);
+			m.addAttribute("data",data);
+		}
+		catch(Exception e) {
+			System.out.println("수정 접근 오류!");
+		}
+		
+		return "/WEB-INF/jsp/product_modify";
+	}
+	
+	
+	//상품 삭제 파트
+	@GetMapping("/product_delete.do")
+	public void del_product(HttpServletRequest req, HttpServletResponse res) {
+		res.setContentType("text/html; charset=utf-8");
+		
+		try {
+			this.pw = res.getWriter();
+			String no = req.getParameter("idx");
+			product_delete pd = new product_delete();
+			int result = pd.delete_ok(no);
+			if(result == 1) { // 정상적인 sql 작동
+				this.pw.write("<script>alert('정상적으로 삭제 되었습니다.');"
+						+ "location.href='./product_list.do';</script>");
+			}
+			else {   //0 SQL문법이 올바르게 작동되지 않을 경우
+				this.pw.write("<script>alert('올바른 데이터 값이 아닙니다.');"
+						+ "location.href='./product_list.do';</script>");
+			}
+		}
+		catch(Exception e) {
+			this.pw.write("<script>alert('잘못된 접근 방식 입니다.');"
+					+ "history.go(-1);</script>");
+		}
+	}
+	
+	
 	
 	//JSTL로 view page 출력 파트
 	@RequestMapping("/product_list.do")
