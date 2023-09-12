@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ECMA Class (선언식)</title>
+</head>
+<body>
+
+</body>
+<script>
+	class abc{
+		
+	}
+</script>
+</html>

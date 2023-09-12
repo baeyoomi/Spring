@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Spring 파일 업로드 기능</title>
+</head>
+<body>
+<form id="frm" method="post" action="./fileok.do" enctype="multipart/form-data">
+	
+	
+</form>
+
+</body>
+</html>

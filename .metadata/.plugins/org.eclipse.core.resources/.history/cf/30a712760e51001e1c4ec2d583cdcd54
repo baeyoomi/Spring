@@ -1,0 +1,30 @@
+//네트워크 기초 외부 이미지 및 동영상 크롤링
+
+import java.net.URL;
+import java.net.URLConnection;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+
+public class net2 {
+
+	public static void main(String[] args) throws Exception {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("웹에서 가져올 이미지 주소를 입력하세요 : ");
+		String url = sc.nextLine();
+		
+		URL u = new URL(url); //URL(클래스) : 네트워크 경로를 말함
+		URLConnection con = u.openConnection();  //해당 경로를 연결
+		
+		//indexOf 기능과 비슷함 -1 (연결하지 못함)
+		int imgsize = con.getContentLength();
+		String imgtype = con.getContentType();  //파일 타입을 확인
+		long date = con.getDate();   //파일 업로드 날짜
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		String day = sdf.format(date);
+		System.out.println("imgsize : "+imgsize);
+		System.out.println("imgtype : "+imgtype);
+		System.out.println("date : "+date);
+
+	}
+
+}

@@ -1,0 +1,17 @@
+
+public class client2 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+
+class client_chat {
+	private final String ip= "";
+	
+	public void chat() {
+		
+	}
+}

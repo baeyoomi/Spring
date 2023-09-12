@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ECMA Class (선언식)</title>
+</head>
+<body>
+
+</body>
+<script>
+	class abc{
+		aaa(){
+			console.log("aaa 메소드");
+		}
+		bbb(){
+			console.log("bbb 메소드");
+		}
+	}
+</script>
+</html>

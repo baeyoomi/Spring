@@ -1,0 +1,10 @@
+//외부 url 접속 정보 알아오기
+public class net3 {
+
+	public static void main(String[] args) {
+		String url = "https://www.jogunshop.com/index.html";
+		URL urls = new URL(url);
+
+	}
+
+}

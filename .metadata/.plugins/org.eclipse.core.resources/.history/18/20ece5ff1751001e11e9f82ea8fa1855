@@ -1,0 +1,30 @@
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class client2 {
+
+	public static void main(String[] args) {
+		new client_chat().chat();
+
+	}
+
+}
+
+class client_chat {
+	private final String ip= "192.168.110.217";
+	final int port = 8009;
+	Scanner sc = null;
+	Socket sk = null;
+	InputStream is = null;
+	OutputStream os = null;
+	String msg = null;
+	String mid = null;
+	String smsg = null;
+	String check = null;
+	
+	public void chat() {
+		
+	}
+}

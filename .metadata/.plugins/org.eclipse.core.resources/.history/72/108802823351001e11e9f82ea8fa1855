@@ -1,0 +1,48 @@
+
+
+//Thread 활용
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class client3 {
+
+	public static void main(String[] args) {
+		client3 c3 = new client3();
+		c3.start();
+	}
+	
+	public void start() {
+		Socket socket = null;
+		BufferedReader in = null;
+		InputStream is = null;
+		InputStreamReader ir = null;
+		Scanner sc = null;
+		
+		try {
+			socket = new Socket("192.168.110.217",8000);
+			System.out.println("[서버 접속 완료!!]");
+			sc = new Scanner(System.in);
+			System.out.println("접속할 ID를 입력하세요 : ");
+			String name = sc.next();
+		}
+		catch(Exception e) {
+			System.out.println("[서버 접속 오류!!]");
+		}
+		finally {
+			try {
+				socket.close();
+				sc.close();
+			}
+			catch(Exception e) {
+				System.out.println("강제 접속 진행!!");
+				System.exit(0);
+			}
+		}
+		System.out.println("서버 접속 종료!");
+	}
+
+}

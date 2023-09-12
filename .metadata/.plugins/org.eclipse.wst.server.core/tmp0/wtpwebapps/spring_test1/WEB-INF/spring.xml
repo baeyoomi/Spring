@@ -21,6 +21,12 @@
 	</beans:bean>
 	
 	<beans:bean class="sp1.webpage2"></beans:bean>
+	
+	<!-- 파일 업로드 기능 추가 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding" value="utf-8"></beans:property>
+		<beans:property name="maxUploadSize" value="2097152"></beans:property>
+	</beans:bean>
 </beans:beans>
 
 

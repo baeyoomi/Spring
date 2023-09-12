@@ -1,0 +1,59 @@
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class client2 {
+
+	public static void main(String[] args) {
+		new client_chat().chat();
+
+	}
+
+}
+
+class client_chat {
+	private final String ip= "192.168.110.217";
+	final int port = 8009;
+	Scanner sc = null;
+	Socket sk = null;
+	InputStream is = null;
+	OutputStream os = null;
+	String msg = null;
+	String mid = null;
+	String smsg = null;
+	String check = null;
+	
+	public void chat() {
+		try {
+			this.sc = new Scanner(System.in);
+			System.out.println("아이디를 생성해 주세요 : ");
+			this.mid = this.sc.next();
+			int ck = 0;
+			
+			while(true) {
+				this.sk = new Socket(this.ip,this.port);
+				this.is = this.sk.getInputStream();
+				this.os = this.sk.getOutputStream();
+				if(ck == 0) {
+					this.msg = "["+this.mid+"] : 님 입장하였습니다.";
+				}
+				else {
+					this.sc = new Scanner(System.in);
+					System.out.println("메세지 내용을 입력해 주세요 : ");
+					this.check = this.sc.nextLine().intern();
+					if(this.check == "exit") {
+						this.msg = "["+this.mid+"] : 님 퇴장하였습니다.";
+						this.os.close();
+						this.sc.close();
+						this.is.close();
+						this.sk.close();
+					}
+				}
+			}
+		}
+		catch(Exception e) {
+			System.out.println("서버 접속 장애가 발생하여 강제 종료 됩니다.");
+		}
+	}
+}

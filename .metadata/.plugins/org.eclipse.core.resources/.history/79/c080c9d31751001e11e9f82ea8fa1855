@@ -1,0 +1,18 @@
+
+public class client2 {
+
+	public static void main(String[] args) {
+		new client_chat().chat();
+
+	}
+
+}
+
+class client_chat {
+	private final String ip= "192.168.110.217";
+	final int port = 8009;
+	
+	public void chat() {
+		
+	}
+}

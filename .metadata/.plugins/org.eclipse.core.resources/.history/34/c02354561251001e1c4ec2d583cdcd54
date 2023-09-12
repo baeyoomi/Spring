@@ -1,0 +1,20 @@
+//외부 url 접속 정보 알아오기
+
+import java.net.URL;
+import java.net.URLConnection;
+
+public class net3 {
+
+	public static void main(String[] args) throws Exception {
+		String url = "https://www.jogunshop.com:443/index.html";
+		URL urls = new URL(url);
+		URLConnection con = urls.openConnection();
+		
+		System.out.println(urls.getProtocol()); //http,https 검토용
+		System.out.println(urls.getPort()); //포트정보
+		System.out.println(urls.getHost()); //도메인정보
+		System.out.println(urls.getFile()); //경로+파라미터값
+
+	}
+
+}

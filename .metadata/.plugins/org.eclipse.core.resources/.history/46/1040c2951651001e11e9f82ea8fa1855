@@ -1,0 +1,46 @@
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class server2 {
+
+	public static void main(String[] args) {
+		new chat().chatserver();
+
+	}
+
+}
+
+class chat {
+	private int port = 8009;
+	ServerSocket sk = null;
+	Socket so = null;
+	Scanner sc = null;
+	InputStream is = null;
+	OutputStream os = null;
+	String mid = null;
+	String msg = null;
+	String cmsg = null;
+	String check = null;
+	
+	public void chatserver() {
+		try {
+			this.sk = new ServerSocket(this.port);
+			this.sc = new Scanner(System.in);
+			System.out.println("아이디를 생성하세요 : ");
+			this.mid = sc.next();
+			System.out.println("채팅방 개설 되었습니다.");
+			
+			for(;;) {
+				this.so = this.sk.accept();
+				this.is = this.so.getInputStream();
+				this.os = this.so.getOutputStream();
+			}
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+}

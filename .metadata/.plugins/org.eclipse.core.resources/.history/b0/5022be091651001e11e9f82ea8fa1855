@@ -1,0 +1,24 @@
+import java.io.OutputStream;
+import java.net.ServerSocket;
+
+public class server2 {
+
+	public static void main(String[] args) {
+		new chat().chatserver();
+
+	}
+
+}
+
+class chat {
+	private int port = 8009;
+	ServerSocket sk = null;
+	Socket so = null;
+	Scanner sc = null;
+	InputStream is = null;
+	OutputStream os = null;
+	
+	public void chatserver() {
+		
+	}
+}

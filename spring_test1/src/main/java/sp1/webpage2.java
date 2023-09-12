@@ -1,5 +1,6 @@
 package sp1;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,13 +18,36 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class webpage2 {
 	PrintWriter pw = null;
+	
+	//파일 업로드 기능
+	@PostMapping("/fileok.do")
+	public void upload(MultipartFile mfile,HttpServletRequest req, Model m) throws Exception {
+		String filename = mfile.getOriginalFilename();
+		long filesize = mfile.getSize();
+		String url = req.getServletContext().getRealPath("/fileup/") + filename;
+		//System.out.println(url);
+		
+		//파일저장
+		File f = new File(url); //io
+		
+		//spring 전용 파일 업로드 클래스
+		FileCopyUtils.copy(mfile.getBytes(), f);
+		System.out.println("업로드 파일 정상적으로 진행 완료!");
+		
+		
+	} 
+	
+	
+	
 	
 	//수정완료
 	@PostMapping("/product_modifyok.do")
