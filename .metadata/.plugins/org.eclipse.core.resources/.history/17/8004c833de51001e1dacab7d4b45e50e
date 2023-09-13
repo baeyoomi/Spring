@@ -1,0 +1,52 @@
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.util.Scanner;
+
+public class udp_server {
+//UDP - Server 통신 1:1
+	public static void main(String[] args) {
+		server_chat sc = new server_chat();
+		sc.udp();
+	}
+}
+
+class server_chat {
+	private String ip = null;		//서버 ip
+	private int port = 0;			//서버 udp 포트
+	public DatagramSocket ds = null;		//udp socket
+	public DatagramPacket dp = null;		//메세지 송수신 패킷
+	public InetAddress ia = null;		//서버 ip, 접속자 IP 기록
+	String msg = "";					//메세지
+	
+	public server_chat() {
+		this.ip = "192.168.110.217";
+		this.port = 7000;
+	}
+	
+	public void udp() {
+		try {
+			this.ia = InetAddress.getByName(this.ip);
+			System.out.println("UDP server 오픈!!");
+			this.ds = new DatagramSocket(this.port);
+			
+			while(true) {
+				byte[] by = new byte[1024];
+				this.dp = new DatagramPacket(by, by.length);
+				System.out.println("------채팅시작------");
+				this.ds.receive(dp);
+				this.msg = new String(this.dp.getData());
+				System.out.println(this.msg);
+				this.ds.send(dp);
+			}
+			
+			
+		}
+		catch(Exception e) {
+			System.out.println("UDP 서버 오픈 오류!!");
+		}
+	}
+}
+

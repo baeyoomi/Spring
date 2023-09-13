@@ -1,0 +1,39 @@
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.util.Scanner;
+
+public class udp_server {
+//UDP - Server 통신 1:1
+	public static void main(String[] args) {
+		server_chat sc = new server_chat();
+		sc.udp();
+	}
+}
+
+class server_chat {
+	private String ip = null;
+	private int port = 0;
+	public DatagramSocket ds = null;		//udp socket
+	public InetAddress ia = null;		//ip
+	public Scanner sc = null;
+	
+	public server_chat() {
+		this.ip = "192.168.110.217";
+		this.port = 7000;
+	}
+	
+	public void udp() {
+		try {
+			this.ia = InetAddress.getByName(this.ip);
+			this.ds = new DatagramSocket(this.port);
+			System.out.println("UDP server 오픈!!");
+			
+			this.sc = new Scanner(System.in);
+			
+		}
+		catch(Exception e) {
+			System.out.println("UDP 서버 오픈 오류!!");
+		}
+	}
+}
+

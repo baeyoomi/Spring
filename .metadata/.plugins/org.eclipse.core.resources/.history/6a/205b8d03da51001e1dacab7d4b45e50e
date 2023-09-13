@@ -1,0 +1,44 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+
+public class udp_client {
+//UDP - Client 통신
+	public static void main(String[] args) {
+		client_udp cu = new client_udp();
+		cu.cudp();
+	}
+
+}
+
+class client_udp {
+	private String ip = null;
+	private int port = 0;
+	public DatagramSocket ds = null;	
+	public DatagramPacket dp = null;
+	public InetAddress ia = null;
+	public BufferedReader br = null;
+	public String msg = null;
+	
+	public client_udp() {
+		this.ip = "192.168.110.217";
+		this.port = 7000;
+	}
+	
+	public void cudp() {
+		try {
+			this.ia = InetAddress.getByName(this.ip);
+			this.ds = new DatagramSocket(this.port);
+			System.out.println("아이디를 입력하세요 : ");
+			this.br = new BufferedReader(new InputStreamReader(System.in));
+			this.msg = this.br.readLine();
+			byte by[] = this.msg.getBytes();
+			this.dp = new DatagramPacket(by,0 ,port);
+		}
+		catch(Exception e) {
+			System.out.println("서버 접속 오류!");
+		}
+	}
+}

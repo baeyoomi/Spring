@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ECMA 1일차</title>
+<link rel="shortcut icon" href="#">
+</head>
+<body>
+
+</body>
+<script>
+	class box{
+		//this => class명을 지칭, 메소드를 지칭
+		aaa(data){
+			//메소드에 일반 변수형을 사용하면 다른 외부메소드에서 사용못함
+			//this를 이용한 가상변수형을 만들면 모든메소드에서 사용가능합니다
+		//	console.log(data);
+			this.a = data;
+			this.b = "이순신";
+			this.bbb();
+			this.ccc();
+		}
+		bbb(){
+			this.ddd = "변수명";
+		//	console.log("bbb" + this.a);
+		//	console.log("bbb" + this.b);
+			let datas = "bbb의 값";
+		}
+		ccc(){
+		//	console.log("ccc" + this.a);
+		//	console.log("ccc" + this.b);
+		}
+	}
+	let k = new box();
+	k.aaa("홍길동");
+	//k.box();
+	//console.log(k.bbb().datas);
+	
+	//변수형태의 class
+	const aaa = class box{
+		aaa_box(data){
+		//	console.log(data);
+		}
+	}
+	//console.log(aaa.name);		//해당 변수에 class 이름을 가져옴
+	var a = new aaa().aaa_box("변수형 메소드 호출"); // aaa().aaa_box("즉시실행"), new를 사용하면 새로운 인스턴스
+	var b = new aaa().aaa_box("인스턴스 새롭게 호출");
+	
+	//변수형태 class 이름이 없음
+	const bbb = class {
+		bbb_box(data){
+			this.a = "ES";
+			//console.log(data);
+		}
+		ccc_box(){
+			this.b = this.a + "VS JS";
+			return this.b;
+		}
+	}
+	 new bbb().bbb_box("이름없는 클래스");
+	 var result = new bbb().ccc_box();
+	 console.log(result);
+	 console.log(bbb().ccc_box().this.b);
+		
+	
+	
+</script>
+	
+</html>

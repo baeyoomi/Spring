@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ECMA 1일차 - class 상속</title>
+<link rel="shortcut icon" href="#">
+</head>
+<body>
+
+</body>
+<script>
+	class box1{
+		abc(){
+			this.msg = "홍길동님 환영합니다.";
+			return this.msg;
+		}
+	}
+	class box2 extends box1{
+		bbb(){
+			this.data = this.abc();
+			console.log(this.data);
+		}
+		
+	}
+	
+	let aa = new box2();
+	aa.bbb();
+	
+</script>
+</html>

@@ -1,7 +1,0 @@
-package sp1;
-
-public class userdata {
-	String mid = null;
-	String mname = null;
-	
-}
